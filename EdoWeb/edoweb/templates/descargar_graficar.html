@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h3>Rendimiento del modelo uno!!!</h3>
+    <table id="data" class="w3-table w3-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th class=""> Archivo</th>
+                <th class=""> Actividades</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for files in modelouno | reverse %}
+                    <tr>
+                        <td> {{ loop.index }}</td>
+                        <td> {{ files }} </td>
+                        <td>
+                            <a href="{{ url_for('descargar_csv',modelo='modelouno',dataset=files) }}" class="w3-button w3-white w3-border w3-border-green w3-round-large">Descargar</a>
+                        </td>
+                    </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+
+    <h3>Rendimiento del modelo dos!!!</h3>
+    <table id="data" class="w3-table w3-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th class=""> Archivo</th>
+                <th class=""> Actividades</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for files in modelodos | reverse %}
+                    <tr>
+                        <td> {{ loop.index }}</td>
+                        <td> {{ files }} </td>
+                        <td>
+
+
+                            <a href="{{ url_for('descargar_csv',modelo='modelodos',dataset=files) }}" class="w3-button w3-white w3-border w3-border-red w3-round-large">Descargar</a>
+                        </td>
+                    </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+{% endblock %}

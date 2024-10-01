@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if not flag %}
+        <h1>Cargar nuevo archivo</h1>
+        <form method=post enctype=multipart/form-data>
+            <input type=file name=file>
+            <input type=submit value=Upload>
+        </form>
+        {% else %}
+            <div class="w3-panel w3-green">
+            <h3>Success!</h3>
+            <p>Archivo cargado correctamente!!!</p>
+          </div> 
+        {% endif %}
+{% endblock %}

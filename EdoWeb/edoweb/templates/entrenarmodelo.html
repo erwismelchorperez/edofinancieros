@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Entrenamiento del modelo!!!</h1>
+    <table id="data" class="w3-table w3-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th class=""> Archivo</th>
+                <th class=""> Actividades</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for files in archivos | reverse %}
+                    <tr>
+                        <td> {{ loop.index }}</td>
+                        <td> {{ files }} </td>
+                        <td>
+
+                            <a href="{{ url_for('entrenamientomodelouno',dataset=files) }}" class="w3-button w3-white w3-border w3-border-red w3-round-large">Entrenar M1</a>
+                            <a href="{{ url_for('entrenamientomodelodos',dataset=files) }}" class="w3-button w3-white w3-border w3-border-green w3-round-large">Entrenar M2</a>
+                        </td>
+                    </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+    {% if flag == 'True'%}
+        <p><span class="w3-tag w3-teal">Modelo entrenado!!!</span></p>
+    {% endif %}
+{% endblock %}
